@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>W8ing4PM — TrendAI Arcade</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="app">
+    <canvas id="gameCanvas"></canvas>
+
+    <!-- SCREEN: MENU -->
+    <div id="screen-menu" class="screen active">
+      <div class="scanlines"></div>
+      <div class="menu-content">
+        <div class="logo-block">
+          <div class="logo-top">▓▓▓ TRENDAI CYBER SQUADRON ▓▓▓</div>
+          <h1 class="game-title">W8ing4PM</h1>
+          <div class="logo-sub">[ WAITING FOR PRODUCT MANAGER ]</div>
+        </div>
+        <div class="blink-text">PRESS  SPACE  TO  START</div>
+        <div class="menu-controls">
+          <div class="ctrl-row"><span class="key">← →</span> Move</div>
+          <div class="ctrl-row"><span class="key">SPACE</span> Fire</div>
+          <div class="ctrl-row"><span class="key">P</span> Pause</div>
+          <div class="ctrl-row"><span class="key">M</span> Mute</div>
+        </div>
+        <div class="hi-score-block">
+          <span>HI-SCORE: <span id="hiScoreDisplay">00000</span></span>
+        </div>
+        <div class="flavor-text" id="flavorText"></div>
+        <div class="footer-text">© 2024 TrendAI Cyber Squadron · All threats neutralized</div>
+      </div>
+    </div>
+
+    <!-- SCREEN: PLAYING HUD -->
+    <div id="screen-hud" class="screen">
+      <div class="hud-bar">
+        <div class="hud-left">
+          <span class="hud-label">SCORE</span>
+          <span class="hud-value" id="scoreDisplay">00000</span>
+        </div>
+        <div class="hud-center">
+          <span class="hud-label">WAVE</span>
+          <span class="hud-value" id="waveDisplay">01</span>
+        </div>
+        <div class="hud-right">
+          <span class="hud-label">LIVES</span>
+          <span class="hud-value" id="livesDisplay">♥♥♥</span>
+        </div>
+      </div>
+      <div id="pauseOverlay" class="pause-overlay hidden">
+        <div class="pause-box">
+          <div>[ PAUSED ]</div>
+          <div class="pause-sub">press P to resume</div>
+        </div>
+      </div>
+      <div id="muteIndicator" class="mute-indicator hidden">🔇 MUTED</div>
+    </div>
+
+    <!-- SCREEN: GAME OVER -->
+    <div id="screen-gameover" class="screen">
+      <div class="scanlines"></div>
+      <div class="go-content">
+        <div class="go-title blink-text">GAME  OVER</div>
+        <div class="go-reason" id="goReason"></div>
+        <div class="go-scores">
+          <div>SCORE: <span id="goScore">00000</span></div>
+          <div>HI-SCORE: <span id="goHiScore">00000</span></div>
+        </div>
+        <div class="go-quote" id="goQuote"></div>
+        <div class="blink-text go-restart">PRESS  SPACE  TO  PLAY  AGAIN</div>
+      </div>
+    </div>
+
+    <!-- SCREEN: LEVEL CLEAR -->
+    <div id="screen-levelclear" class="screen">
+      <div class="lc-content">
+        <div class="lc-title">✦ WAVE CLEARED ✦</div>
+        <div class="lc-bonus" id="lcBonus"></div>
+        <div class="lc-next blink-text">NEXT WAVE INCOMING…</div>
+      </div>
+    </div>
+  </div>
+
+  <script src="audio.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>
